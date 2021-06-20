@@ -210,7 +210,7 @@ var
     Samplerate, Tailledeframe, ChannelMode, ExtensionChannelMode,
     Copyright, OriginalVersion, Emphasis, DureeFull, Duree: string;
   path, FileName: string;
-  FrequenceTemp: Double;
+  FrequenceTemp: Single;
   Temps: Single;
 begin
 
@@ -222,7 +222,7 @@ begin
   else
   begin
 
-    if (Ajout.ComboBox2.Items[Ajout.ComboBox2.ItemIndex] = '') then
+    if (Ajout.ComboBox2.Items[Ajout.ComboBox2.ItemIndex] = '') OR (Ajout.ComboBox3.Items[Ajout.ComboBox3.ItemIndex] = '') then
     begin
       ShowMessage('Cette catégorie n''est pas correcte.');
       Result := False;
@@ -286,7 +286,7 @@ begin
       // Open file
       Ajout.c1 := BASS_StreamCreateFile(False, PChar(FileName), 0, 0, BASS_STREAM_DECODE);
       // Frequency
-      //BASS_ChannelGetAttribute(Ajout.c1, BASS_ATTRIB_FREQ, FrequenceTemp);
+      BASS_ChannelGetAttribute(Ajout.c1, BASS_ATTRIB_FREQ, FrequenceTemp);
       // Duration
       Temps := BASS_ChannelBytes2Seconds(Ajout.c1, BASS_ChannelGetLength(Ajout.c1, 0));
       Duree := StringReplace(format('%.2f', [Temps]), ',', '.', [rfReplaceAll]);
