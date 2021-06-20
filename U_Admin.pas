@@ -208,7 +208,7 @@ var
   Titre, Artiste, Album, Commentaire, Annee, Genre,
     AudioVersion, LayerVersion, Protection, Bitrate,
     Samplerate, Tailledeframe, ChannelMode, ExtensionChannelMode,
-    Copyright, OriginalVersion, Emphasis, DureeFull, Duree: string;
+    Copyright, OriginalVersion, Emphasis, DureeFull, Duree, FadeOut: string;
   path, FileName: string;
   FrequenceTemp: Single;
   Temps: Single;
@@ -290,6 +290,8 @@ begin
       // Duration
       Temps := BASS_ChannelBytes2Seconds(Ajout.c1, BASS_ChannelGetLength(Ajout.c1, 0));
       Duree := StringReplace(format('%.2f', [Temps]), ',', '.', [rfReplaceAll]);
+      FadeOut := StringReplace(format('%.2f', [Temps-2]), ',', '.', [rfReplaceAll]);
+
       // Close file
       BASS_StreamFree(Ajout.c1);
 
@@ -297,7 +299,7 @@ begin
       Ajout.StringGrid1.Cells[9, Ajout.pointer] := Duree; // Duree
       Ajout.StringGrid1.Cells[10, Ajout.pointer] := '0'; // Fade In
       Ajout.StringGrid1.Cells[11, Ajout.pointer] := '0'; // Intro
-      Ajout.StringGrid1.Cells[12, Ajout.pointer] := Duree; // Out
+      Ajout.StringGrid1.Cells[12, Ajout.pointer] := FadeOut; // Fade Out
       Ajout.StringGrid1.Cells[13, Ajout.pointer] := FileName; // Path complet
 
       Ajout.pointer := Ajout.pointer + 1;
