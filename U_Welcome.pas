@@ -75,6 +75,7 @@ type
     StringGrid2: TStringGrid;
     TimerGetStats: TTimer;
     LookOutButton24: TJvLookOutButton;
+    LookOutButton18: TJvLookOutButton;
     procedure ToolButton1Click(Sender: TObject);
     procedure ToolButton2Click(Sender: TObject);
     procedure connectsqlTimer(Sender: TObject);
@@ -103,6 +104,7 @@ type
     procedure LookOutButton11Click(Sender: TObject);
     procedure LookOutButton12Click(Sender: TObject);
     procedure LookOutButton16Click(Sender: TObject);
+    procedure LookOutButton18Click(Sender: TObject);
     procedure LookOutButton13Click(Sender: TObject);
     procedure LookOutButton15Click(Sender: TObject);
     procedure LookOutButton14Click(Sender: TObject);
@@ -136,7 +138,7 @@ implementation
 uses U_Admin, U_ConfMySQL, U_About, U_Waitlist, U_Gestion, U_GrillePub, U_Canvas,
   U_Timer, U_Users, U_Campaign, U_Planning, U_Stations, U_PubLocale,
   U_ModifyDuree, U_log, U_Config,
-  U_Administration, U_AddZikToPage, U_Formats;
+  U_Administration, U_AddZikToPage, U_Formats, U_Category;
 
 {$R *.dfm}
 
@@ -593,6 +595,11 @@ end;
 procedure Twelcome.LookOutButton10Click(Sender: TObject);
 begin
   Gestion.Show;
+end;
+
+procedure Twelcome.LookOutButton18Click(Sender: TObject);
+begin
+  Category.Show;
 end;
 
 procedure Twelcome.LookOutButton11Click(Sender: TObject);

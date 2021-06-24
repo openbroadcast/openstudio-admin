@@ -29,7 +29,8 @@ uses
   U_AddZikToPage in 'U_AddZikToPage.pas' {PageSelector},
   Bass in 'Bass.pas',
   ExecAndWait in 'ExecAndWait.pas',
-  U_Formats in 'U_Formats.pas' {Formats};
+  U_Formats in 'U_Formats.pas' {Formats},
+  U_Category in 'U_Category.pas' {Category};
 
 {$E .exe}
 
@@ -62,6 +63,7 @@ begin
   Application.CreateForm(TAdministration, Administration);
   Application.CreateForm(TPageSelector, PageSelector);
   Application.CreateForm(TFormats, Formats);
+  Application.CreateForm(TCategory, Category);
   Application.Run;
 end.
 

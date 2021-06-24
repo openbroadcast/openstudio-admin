@@ -1,8 +1,8 @@
 object welcome: Twelcome
-  Left = 509
-  Top = 195
+  Left = 763
+  Top = 217
   Width = 971
-  Height = 606
+  Height = 600
   Caption = 'OpenStudio Administrator'
   Color = clBtnFace
   Constraints.MinHeight = 600
@@ -22,14 +22,14 @@ object welcome: Twelcome
   OnResize = FormResize
   DesignSize = (
     955
-    547)
+    541)
   PixelsPerInch = 96
   TextHeight = 13
   object JvLookOut1: TJvLookOut
     Left = 0
     Top = 0
     Width = 115
-    Height = 534
+    Height = 528
     ActivePage = LookOutPage3
     Anchors = [akLeft, akTop, akBottom]
     Color = clBtnFace
@@ -37,7 +37,7 @@ object welcome: Twelcome
       Left = -1
       Top = 0
       Width = 115
-      Height = 414
+      Height = 408
       ImageSize = isSmall
       HighlightFont.Charset = DEFAULT_CHARSET
       HighlightFont.Color = clWindowText
@@ -95,7 +95,7 @@ object welcome: Twelcome
       Left = -1
       Top = 20
       Width = 115
-      Height = 414
+      Height = 408
       ImageSize = isSmall
       HighlightFont.Charset = DEFAULT_CHARSET
       HighlightFont.Color = clWindowText
@@ -193,7 +193,7 @@ object welcome: Twelcome
       Left = 0
       Top = 40
       Width = 115
-      Height = 414
+      Height = 408
       ImageSize = isSmall
       HighlightFont.Charset = DEFAULT_CHARSET
       HighlightFont.Color = clWindowText
@@ -204,7 +204,7 @@ object welcome: Twelcome
       Color = clBtnShadow
       object LookOutButton9: TJvLookOutButton
         Left = 20
-        Top = 26
+        Top = 86
         Width = 75
         Caption = 'Ajouter'
         HighlightFont.Charset = DEFAULT_CHARSET
@@ -218,7 +218,7 @@ object welcome: Twelcome
       end
       object LookOutButton10: TJvLookOutButton
         Left = 20
-        Top = 86
+        Top = 146
         Width = 75
         Caption = 'G'#233'rer'
         HighlightFont.Charset = DEFAULT_CHARSET
@@ -230,12 +230,26 @@ object welcome: Twelcome
         LargeImages = Images
         OnClick = LookOutButton10Click
       end
+      object LookOutButton18: TJvLookOutButton
+        Left = 20
+        Top = 26
+        Width = 75
+        Caption = 'Cat'#233'gories'
+        HighlightFont.Charset = DEFAULT_CHARSET
+        HighlightFont.Color = clWindowText
+        HighlightFont.Height = -11
+        HighlightFont.Name = 'MS Sans Serif'
+        HighlightFont.Style = []
+        ImageIndex = 17
+        LargeImages = Images
+        OnClick = LookOutButton18Click
+      end
     end
     object LookOutPage4: TJvLookOutPage
       Left = 0
-      Top = 451
+      Top = 445
       Width = 115
-      Height = 414
+      Height = 408
       ImageSize = isSmall
       HighlightFont.Charset = DEFAULT_CHARSET
       HighlightFont.Color = clWindowText
@@ -317,9 +331,9 @@ object welcome: Twelcome
     end
     object LookOutPage5: TJvLookOutPage
       Left = 0
-      Top = 471
+      Top = 465
       Width = 115
-      Height = 414
+      Height = 408
       ImageSize = isSmall
       HighlightFont.Charset = DEFAULT_CHARSET
       HighlightFont.Color = clWindowText
@@ -359,9 +373,9 @@ object welcome: Twelcome
     end
     object LookOutPage6: TJvLookOutPage
       Left = 0
-      Top = 491
+      Top = 485
       Width = 115
-      Height = 414
+      Height = 408
       ImageSize = isSmall
       HighlightFont.Charset = DEFAULT_CHARSET
       HighlightFont.Color = clWindowText
@@ -401,9 +415,9 @@ object welcome: Twelcome
     end
     object LookOutPage7: TJvLookOutPage
       Left = 0
-      Top = 511
+      Top = 505
       Width = 115
-      Height = 414
+      Height = 408
       ImageSize = isSmall
       HighlightFont.Charset = DEFAULT_CHARSET
       HighlightFont.Color = clWindowText
@@ -458,7 +472,7 @@ object welcome: Twelcome
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 528
+    Top = 522
     Width = 955
     Height = 19
     Panels = <
@@ -470,7 +484,7 @@ object welcome: Twelcome
     Left = 121
     Top = 6
     Width = 833
-    Height = 523
+    Height = 517
     Anchors = [akLeft, akTop, akRight, akBottom]
     TabOrder = 2
     object GroupBox1: TGroupBox
