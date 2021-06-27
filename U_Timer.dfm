@@ -1,6 +1,6 @@
 object Timer: TTimer
-  Left = 118
-  Top = 162
+  Left = 466
+  Top = 233
   BorderStyle = bsSingle
   Caption = 'Comblage Timer'
   ClientHeight = 519

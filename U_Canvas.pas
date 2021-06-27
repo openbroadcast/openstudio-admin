@@ -182,6 +182,10 @@ begin
   if Res = nil then begin
     StatusBar1.Panels[0].Text := 'Pas encore de Canvas';
   end
+  else if (Welcome.sql.num_rows(Res) = 0) then
+  begin
+    StatusBar1.Panels[0].Text := 'Pas encore de Canvas';
+  end
   else
   try
 
@@ -206,15 +210,22 @@ begin
 end;
 
 procedure TCanvasControl.BitBtn4Click(Sender: TObject);
+var
+  format, vcategorie, vsscategorie : String;
 begin
+
+  format := IntToStr(integer(CanvasName.items.objects[CanvasName.itemindex]));
+  vcategorie := IntToStr(integer(Categorie.items.objects[Categorie.itemindex]));
+  vsscategorie := IntToStr(integer(SSCategorie.items.objects[SSCategorie.itemindex]));
+
 
   if (Update <> 0) then
   begin
-    Welcome.Sql.Query('UPDATE canvas SET format=' + IntToStr(integer(CanvasName.items.objects[CanvasName.itemindex])) + ', Categorie=''' + IntToStr(integer(Categorie.items.objects[Categorie.itemindex])) + ''', ssCategorie=''' + IntToStr(integer(SSCategorie.items.objects[SSCategorie.itemindex])) + ''', Comment=''' + Comment.Text + ''', protectioncd=''' + IntToStr(protectioncd.Value) + ''', protectionartist=''' + IntToStr(protectionartist.Value) + ''' WHERE id=''' + IntToStr(Update) + ''';');
+    Welcome.Sql.Query('UPDATE canvas SET format=' + format + ', Categorie=''' + vcategorie + ''', ssCategorie=''' + vsscategorie + ''', Comment=''' + Comment.Text + ''', protectioncd=''' + IntToStr(protectioncd.Value) + ''', protectionartist=''' + IntToStr(protectionartist.Value) + ''' WHERE id=''' + IntToStr(Update) + ''';');
   end
   else
   begin
-    Welcome.Sql.Query('INSERT into canvas SET format=' + IntToStr(integer(CanvasName.items.objects[CanvasName.itemindex])) + ', Categorie=''' + IntToStr(integer(Categorie.items.objects[Categorie.itemindex])) + ''', ssCategorie=''' + IntToStr(integer(SSCategorie.items.objects[SSCategorie.itemindex])) + ''', Comment=''' + Comment.Text + ''', protectioncd=''' + IntToStr(protectioncd.Value) + ''', protectionartist=''' + IntToStr(protectionartist.Value) + ''';');
+    Welcome.Sql.Query('INSERT into canvas SET format=' + format + ', Categorie=''' + vcategorie + ''', ssCategorie=''' + vsscategorie + ''', Comment=''' + Comment.Text + ''', protectioncd=''' + IntToStr(protectioncd.Value) + ''', protectionartist=''' + IntToStr(protectionartist.Value) + ''';');
   end;
 
   StringGrid1.cells[0, StringGrid1.Row] := IntToStr(integer(CanvasName.items.objects[CanvasName.itemindex]));
@@ -231,25 +242,23 @@ end;
 
 procedure TCanvasControl.BitBtn1Click(Sender: TObject);
 begin
-
-  CanvasName.Text := StringGrid1.cells[0, StringGrid1.Row];
-  Comment.Text := StringGrid1.cells[3, StringGrid1.Row];
-  Update := StrToInt(StringGrid1.cells[4, StringGrid1.Row]);
-  protectioncd.Value := StrToInt(StringGrid1.cells[5, StringGrid1.Row]);
-  protectionartist.Value := StrToInt(StringGrid1.cells[6, StringGrid1.Row]);
-
+ if(StringGrid1.cells[0, StringGrid1.Row] <> '') then
+ begin
+    CanvasName.ItemIndex := CanvasName.items.IndexOfObject(TObject(StrToInt(StringGrid1.cells[0, StringGrid1.Row])));
+    Categorie.ItemIndex := Categorie.items.IndexOfObject(TObject(StrToInt(StringGrid1.cells[7, StringGrid1.Row])));
+    CategorieChange(Sender);
+    SSCategorie.ItemIndex := SSCategorie.items.IndexOfObject(TObject(StrToInt(StringGrid1.cells[8, StringGrid1.Row])));
+    Comment.Text := StringGrid1.cells[3, StringGrid1.Row];
+    Update := StrToInt(StringGrid1.cells[4, StringGrid1.Row]);
+    protectioncd.Value := StrToInt(StringGrid1.cells[5, StringGrid1.Row]);
+    protectionartist.Value := StrToInt(StringGrid1.cells[6, StringGrid1.Row]);
+  end;
 end;
 
 procedure TCanvasControl.BitBtn2Click(Sender: TObject);
 begin
   Update := 0;
   TStringGridX(StringGrid1).InsertRow(StringGrid1.Row);
-  CanvasName.Text := '';
-  Categorie.Text := '';
-  ssCategorie.Text := '';
-  Comment.Text := '';
-  ProtectionCD.Text := '600';
-  ProtectionArtist.Text := '600';
 end;
 
 procedure TCanvasControl.FormShow(Sender: TObject);
@@ -259,7 +268,7 @@ begin
   begin
 
     vider.Click();
-    consulter.Click();
+    consulterClick(Sender);
     loadComboBox.Click();
 
   end;
@@ -296,7 +305,7 @@ begin
       welcome.Sql.query('INSERT INTO canvas SET format=''' + StringGrid1.cells[0, i] + ''', Categorie=''' + StringGrid1.cells[7, i] + ''', ssCategorie=''' + StringGrid1.cells[8, i] + ''', Comment=''' + StringGrid1.cells[3, i] + ''', protectioncd=''' + StringGrid1.cells[5, i] + ''', protectionartist=''' + StringGrid1.cells[6, i] + ''';');
     end;
 
-    consulter.Click;
+    consulterClick(Sender);
 
   end;
 
@@ -335,7 +344,7 @@ end;
 
 procedure TCanvasControl.StringGrid1Click(Sender: TObject);
 begin
-  BitBtn1.Click;
+  BitBtn1Click(Sender);
 end;
 
 procedure TCanvasControl.loadComboBoxClick(Sender: TObject);

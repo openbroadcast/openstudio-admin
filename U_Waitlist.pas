@@ -315,7 +315,8 @@ begin
         //DateCurrent := (DateTime + SecondToTime(Trunc(GetDecall))) - SecondToTime(Trunc(GetProtection));
 
       if (Row2[2]<>'0') then DoublonCD := ' AND playlist.Date_Joue < SUBDATE(''' + FormatDateTime('yyyy-mm-dd hh:mm:ss', DateTime) + ''', INTERVAL '+Row2[2]+' SECOND) ' else  DoublonCD:='';
-      if (Row2[3]<>'0') then DoublonArtist := ' AND artistes.LastBroadcasting < SUBDATE(''' + FormatDateTime('yyyy-mm-dd hh:mm:ss', DateTime) + ''', INTERVAL '+Row2[3]+'  SECOND) ' else  DoublonArtist:='';
+      //if (Row2[3]<>'0') then DoublonArtist := ' AND artistes.LastBroadcasting < SUBDATE(''' + FormatDateTime('yyyy-mm-dd hh:mm:ss', DateTime) + ''', INTERVAL '+Row2[3]+'  SECOND) ' else  DoublonArtist:='';
+      DoublonArtist:='';
 
       Select := 'SELECT playlist.Id, artistes.Name AS artiste, playlist.Titre, playlist.Annee, playlist.Duree, ';
       Select := Select + 'playlist.Frequence, playlist.Tempo, playlist.Intro, playlist.FadeIn, playlist.FadeOut, playlist.Path, ';
@@ -375,8 +376,10 @@ begin
 { *********************************************************************** }
 
         HeureCurrent := FormatDateTime('yyyy-mm-dd hh:mm:ss', DateTime);
-        welcome.sql.query('UPDATE playlist SET Date_Joue=''' + HeureCurrent + ''' WHERE ID='+ Row3[0] +';');
         welcome.Sql.query('UPDATE artistes SET LastBroadcasting='''+ HeureCurrent +''' WHERE ID='+ Row3[13] +';');
+        welcome.sql.query('UPDATE playlist SET Date_Joue=''' + HeureCurrent + ''' WHERE ID='+ Row3[0] +';');
+
+        //waitlist.debug.Lines.Add('Protection doublon. Artist: ' + Row3[13] + ' / Titre: ' + Row3[0] + ' / ' + HeureCurrent);
 
 { *********************************************************************** }
 {                    AJOUT EN STRINGGRID                                  }
