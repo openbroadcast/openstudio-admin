@@ -322,7 +322,7 @@ begin
       Select := Select + 'playlist.Frequence, playlist.Tempo, playlist.Intro, playlist.FadeIn, playlist.FadeOut, playlist.Path, ';
       Select := Select + 'playlist.Categorie, playlist.ssCategorie, playlist.Artiste ';
       Select := Select + 'FROM playlist LEFT JOIN artistes ON (artistes.ID=playlist.Artiste) ';
-      Select := Select + 'WHERE FadeOut >= 4.00 AND playlist.Categorie=' + Row2[0] + ' AND playlist.ssCategorie=' + Row2[1] + ' AND playlist.Valide ' + DoublonCD + DoublonArtist;
+      Select := Select + 'WHERE ( (FadeOut >= 4.00) OR (FadeOut = 0) )  AND playlist.Categorie=' + Row2[0] + ' AND playlist.ssCategorie=' + Row2[1] + ' AND playlist.Valide ' + DoublonCD + DoublonArtist;
       Select := Select + 'ORDER by Rand() LIMIT 1;';
       //ShowMessage(Select);
       Res3 := welcome.Sql.Query(Select);
