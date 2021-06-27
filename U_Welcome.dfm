@@ -1,6 +1,6 @@
 object welcome: Twelcome
-  Left = 763
-  Top = 217
+  Left = 427
+  Top = 238
   Width = 971
   Height = 600
   Caption = 'OpenStudio Administrator'

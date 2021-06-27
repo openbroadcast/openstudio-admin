@@ -1,6 +1,6 @@
 object Ajout: TAjout
-  Left = 101
-  Top = 27
+  Left = 272
+  Top = 131
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'Ajouter des titres'
