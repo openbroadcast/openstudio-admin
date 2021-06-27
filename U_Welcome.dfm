@@ -30,7 +30,7 @@ object welcome: Twelcome
     Top = 0
     Width = 115
     Height = 528
-    ActivePage = LookOutPage3
+    ActivePage = LookOutPage6
     Anchors = [akLeft, akTop, akBottom]
     Color = clBtnFace
     object LookOutPage1: TJvLookOutPage
@@ -247,7 +247,7 @@ object welcome: Twelcome
     end
     object LookOutPage4: TJvLookOutPage
       Left = 0
-      Top = 445
+      Top = 60
       Width = 115
       Height = 408
       ImageSize = isSmall
@@ -331,7 +331,7 @@ object welcome: Twelcome
     end
     object LookOutPage5: TJvLookOutPage
       Left = 0
-      Top = 465
+      Top = 80
       Width = 115
       Height = 408
       ImageSize = isSmall
@@ -373,7 +373,7 @@ object welcome: Twelcome
     end
     object LookOutPage6: TJvLookOutPage
       Left = 0
-      Top = 485
+      Top = 100
       Width = 115
       Height = 408
       ImageSize = isSmall
@@ -389,6 +389,7 @@ object welcome: Twelcome
         Top = 26
         Width = 75
         Caption = 'Campagnes'
+        Enabled = False
         HighlightFont.Charset = DEFAULT_CHARSET
         HighlightFont.Color = clWindowText
         HighlightFont.Height = -11
@@ -403,6 +404,7 @@ object welcome: Twelcome
         Top = 86
         Width = 75
         Caption = 'G'#233'n'#233'rer'
+        Enabled = False
         HighlightFont.Charset = DEFAULT_CHARSET
         HighlightFont.Color = clWindowText
         HighlightFont.Height = -11
