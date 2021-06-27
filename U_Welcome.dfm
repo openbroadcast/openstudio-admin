@@ -30,7 +30,7 @@ object welcome: Twelcome
     Top = 0
     Width = 115
     Height = 528
-    ActivePage = LookOutPage6
+    ActivePage = LookOutPage5
     Anchors = [akLeft, akTop, akBottom]
     Color = clBtnFace
     object LookOutPage1: TJvLookOutPage
@@ -373,7 +373,7 @@ object welcome: Twelcome
     end
     object LookOutPage6: TJvLookOutPage
       Left = 0
-      Top = 100
+      Top = 485
       Width = 115
       Height = 408
       ImageSize = isSmall
