@@ -1,9 +1,11 @@
 object Category: TCategory
   Left = 510
   Top = 360
-  Width = 941
-  Height = 164
-  Caption = 'Category'
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsDialog
+  Caption = 'Cat'#233'gories'
+  ClientHeight = 125
+  ClientWidth = 925
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -19,7 +21,7 @@ object Category: TCategory
     Top = 4
     Width = 897
     Height = 109
-    Caption = 'Modifier le nom de la cat'#233'gorie'
+    Caption = 'G'#233'rer les cat'#233'gories'
     TabOrder = 0
     object Categorie: TComboBox
       Left = 13
@@ -64,6 +66,7 @@ object Category: TCategory
       Width = 289
       Height = 21
       TabOrder = 4
+      Visible = False
     end
     object SSCategorieName: TEdit
       Left = 296
